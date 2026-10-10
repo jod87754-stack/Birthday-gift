@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Memories ❤️</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255,170,200,.35),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,210,225,.45),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fffafd,
+            #ffffff,
+            #fff5f9
+        );
+
+    color:#49313b;
+
+    font-family:Georgia,serif;
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti{
+
+    position:fixed;
+
+    top:-30px;
+
+    width:7px;
+
+    height:13px;
+
+    border-radius:3px;
+
+    opacity:.75;
+
+    z-index:0;
+
+    pointer-events:none;
+
+    animation:
+        confettiFall
+        linear
+        infinite;
+}
+
+.confetti:nth-child(1){
+    left:4%;
+    background:#ff6f9d;
+    animation-duration:6s;
+}
+
+.confetti:nth-child(2){
+    left:14%;
+    background:#ffb6cc;
+    animation-duration:8s;
+    animation-delay:1s;
+}
+
+.confetti:nth-child(3){
+    left:25%;
+    background:#ff4f81;
+    animation-duration:7s;
+    animation-delay:2s;
+}
+
+.confetti:nth-child(4){
+    left:36%;
+    background:#ff9fba;
+    animation-duration:9s;
+    animation-delay:.5s;
+}
+
+.confetti:nth-child(5){
+    left:48%;
+    background:#ff6f9d;
+    animation-duration:6.5s;
+    animation-delay:2s;
+}
+
+.confetti:nth-child(6){
+    left:60%;
+    background:#ffb6cc;
+    animation-duration:8.5s;
+}
+
+.confetti:nth-child(7){
+    left:71%;
+    background:#ff4f81;
+    animation-duration:7.5s;
+    animation-delay:3s;
+}
+
+.confetti:nth-child(8){
+    left:82%;
+    background:#ff9fba;
+    animation-duration:9s;
+    animation-delay:1s;
+}
+
+.confetti:nth-child(9){
+    left:91%;
+    background:#ff6f9d;
+    animation-duration:6s;
+    animation-delay:2s;
+}
+
+.confetti:nth-child(10){
+    left:97%;
+    background:#ffc1d5;
+    animation-duration:8s;
+}
+
+@keyframes confettiFall{
+
+    0%{
+        transform:
+            translateY(-40px)
+            rotate(0deg);
+    }
+
+    50%{
+        transform:
+            translateY(50vh)
+            translateX(25px)
+            rotate(360deg);
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            translateX(-25px)
+            rotate(720deg);
+    }
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+    position:relative;
+
+    z-index:1;
+
+    width:94%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:45px 0 70px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    text-align:center;
+
+    margin-bottom:45px;
+}
+
+.header h1{
+
+    color:#d94f78;
+
+    font-size:
+        clamp(38px,8vw,65px);
+
+    margin-bottom:10px;
+
+    text-shadow:
+        0 4px 20px
+        rgba(255,100,150,.2);
+}
+
+.header p{
+
+    color:#82616d;
+
+    font-size:
+        clamp(15px,3vw,19px);
+}
+
+
+/* =========================
+   ALBUM
+========================= */
+
+.album{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:28px;
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+
+/* =========================
+   PHOTO CARD
+========================= */
+
+.photo-card{
+
+    background:
+        rgba(255,255,255,.92);
+
+    padding:12px;
+
+    border-radius:18px;
+
+    border:
+        1px solid
+        rgba(225,90,130,.28);
+
+    box-shadow:
+        0 8px 25px
+        rgba(180,80,110,.10);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.photo-card:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(180,80,110,.16);
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo-preview{
+
+    width:100%;
+
+    aspect-ratio:4/3;
+
+    border-radius:13px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff8fb,
+            #fff0f5
+        );
+
+    border:
+        1px solid
+        rgba(225,90,130,.22);
+}
+
+.photo-preview img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+/* =========================
+   MEMORY TITLE
+========================= */
+
+.photo-title{
+
+    color:#5a3543;
+
+    font-size:19px;
+
+    margin:
+        14px 3px 8px;
+}
+
+
+/* =========================
+   PERMANENT MEMORY TEXT
+========================= */
+
+.memory-text{
+
+    width:100%;
+
+    min-height:145px;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:
+        1px solid
+        rgba(225,90,130,.25);
+
+    background:
+        rgba(255,250,252,.95);
+
+    color:#432c35;
+
+    font-size:15px;
+
+    font-family:Georgia,serif;
+
+    line-height:1.7;
+
+    white-space:pre-wrap;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+
+    width:100%;
+
+    margin-top:65px;
+}
+
+.section-title{
+
+    text-align:center;
+
+    color:#d94f78;
+
+    font-size:
+        clamp(30px,6vw,48px);
+
+    margin-bottom:23px;
+
+    text-shadow:
+        0 4px 18px
+        rgba(255,100,150,.15);
+}
+
+
+/* =========================
+   TEXT BOX
+========================= */
+
+.story-box{
+
+    width:100%;
+
+    background:
+        rgba(255,255,255,.92);
+
+    padding:22px;
+
+    border-radius:22px;
+
+    border:
+        1px solid
+        rgba(225,90,130,.25);
+
+    box-shadow:
+        0 12px 35px
+        rgba(180,80,110,.10);
+}
+
+
+/* =========================
+   OUR STORY TEXT
+========================= */
+
+.story-text{
+
+    width:100%;
+
+    min-height:600px;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    border:
+        1px solid
+        rgba(225,90,130,.22);
+
+    background:#fffafd;
+
+    color:#432c35;
+
+    font-size:17px;
+
+    font-family:Georgia,serif;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-box{
+
+    width:100%;
+
+    background:
+        rgba(255,255,255,.92);
+
+    padding:18px;
+
+    border-radius:22px;
+
+    border:
+        1px solid
+        rgba(225,90,130,.25);
+
+    box-shadow:
+        0 12px 35px
+        rgba(180,80,110,.10);
+
+    text-align:center;
+}
+
+#videoPlayer{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    height:auto;
+
+    display:block;
+
+    background:#f8e8ee;
+
+    border-radius:15px;
+
+    object-fit:cover;
+
+    border:
+        1px solid
+        rgba(225,90,130,.25);
+}
+
+
+/* =========================
+   AFTER VIDEO
+========================= */
+
+.after-video{
+
+    width:100%;
+
+    min-height:400px;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    background:#fffafd;
+
+    border:
+        1px solid
+        rgba(225,90,130,.22);
+
+    color:#432c35;
+
+    font-size:17px;
+
+    font-family:Georgia,serif;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-box{
+
+    width:100%;
+
+    margin-top:70px;
+
+    text-align:center;
+}
+
+.final-area{
+
+    width:100%;
+
+    min-height:230px;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    background:#fffafd;
+
+    border:
+        1px solid
+        rgba(225,90,130,.22);
+
+    color:#432c35;
+
+    font-size:18px;
+
+    font-family:Georgia,serif;
+
+    line-height:2;
+
+    text-align:center;
+
+    white-space:pre-wrap;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:45px;
+
+    color:#a78b96;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .container{
+
+        width:94%;
+
+        padding-top:30px;
+    }
+
+    .album{
+
+        grid-template-columns:1fr;
+
+        gap:22px;
+
+        max-width:460px;
+    }
+
+    .photo-card{
+
+        padding:11px;
+    }
+
+    .memory-text{
+
+        min-height:145px;
+
+        font-size:15px;
+    }
+
+    .story-box{
+
+        padding:12px;
+    }
+
+    .story-text{
+
+        min-height:600px;
+
+        font-size:16px;
+
+        padding:16px;
+    }
+
+    .video-box{
+
+        padding:12px;
+    }
+
+    #videoPlayer{
+
+        border-radius:13px;
+    }
+
+    .after-video{
+
+        min-height:400px;
+
+        font-size:16px;
+
+        padding:16px;
+    }
+
+    .final-area{
+
+        min-height:230px;
+
+        font-size:17px;
+
+        padding:16px;
+    }
+
+    .section{
+
+        margin-top:55px;
+    }
+
+}
+    /* CINEMATIC FULL SCREEN FADE */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:#000;
+    z-index:99999;
+    pointer-events:none;
+
+    animation:cinematicFade 2.2s ease-in-out forwards;
+}
+
+@keyframes cinematicFade{
+
+    /* Completely black at the beginning */
+    0%{
+        opacity:3;
+    }
+
+    25%{
+        opacity:2;
+    }
+
+    /* Slowly reveal the page */
+    40%{
+        opacity:1;
+    }
+
+    65%{
+        opacity:0.75;
+    }
+    
+    80%{
+        opacity: 0.55;
+    }
+    
+    95%{
+        opacity: 0.25
+    }
+    
+    100%{
+        opacity:0;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     PINK CONFETTI
+========================= -->
+
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+<div class="confetti"></div>
+
+
+<div class="container">
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<div class="header">
+
+    <h1>
+        Our Memories 📸
+    </h1>
+
+    <p>
+        A little collection of moments
+        that deserve to be remembered forever. ✨
+    </p>
+
+</div>
+
+
+<!-- =========================
+     PHOTO ALBUM
+========================= -->
+
+<div class="album">
+
+
+<!-- =========================
+     MEMORY 1
+========================= -->
+
+<div class="photo-card">
+
+    <div class="photo-preview">
+
+        <img
+            src="photos/memory1.jpg"
+            alt="Memory 1"
+        >
+
+    </div>
+
+    <h3 class="photo-title">
+        Memory #1 ✨
+    </h3>
+
+    <div class="memory-text">
+To 😁... yrr ye pic ham abhi bhi save krke rakhe hue h... mtlb Daily ham is hi pic ko dekhte h jab bhi bore hote h to 🤭🎀... waise jab ham pehli baar aisa pic bheje the to tereko ye pic accha laga isliye mera pic ko tune apne pic ke saath edit kiya 😂✨️... ham uss din sharm se doob gye the pura 🫠... waise ye memory ko ham ek khaas album mein save kiye h... future ke liye 😁👉🏻👈🏻✨️
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MEMORY 2
+========================= -->
+
+<div class="photo-card">
+
+    <div class="photo-preview">
+
+        <img
+            src="photos/memory2.jpg"
+            alt="Memory 2"
+        >
+
+    </div>
+
+    <h3 class="photo-title">
+        Memory #2 🌸
+    </h3>
+
+    <div class="memory-text">
+Ahmm... 🤭🎀... hmm... I can't even say about this pic... mtlb yrr Thodi thodi sharm wali feelings aa jati.. how beautiful u are 👉🏻👈🏻💘... 🤣 abhi bhi yaad h jab tu TATA gyi thi shadi mein ham samjh hi nhi paa rhe the ki TATA mtlb?? 🤣 ye ek jagah ka name tha fir tu packing karke TATA pahuchi fir dhoom dhaam se masti wagaira fir tune apni ye pic bheji 🤭 bhai literally yaar one of the favorite pic mein se ek h ye 🫀💗✨️... mtlb itni cute si itni pyaari ladki mere liye ek memory Bann gyi or hamesha ke liye bhi tu mere liye ek hi h 🫠
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MEMORY 3
+========================= -->
+
+<div class="photo-card">
+
+    <div class="photo-preview">
+
+        <img
+            src="photos/memory3.jpg"
+            alt="Memory 3"
+        >
+
+    </div>
+
+    <h3 class="photo-title">
+        Memory #3 💕
+    </h3>
+
+    <div class="memory-text">
+Iss hijab mein tum bht sundar dikhti ho 💗🎀✨️ sahi mein yrr ham apne dil se keh rhe h 😫... total 6 photos maine iss memory mein insert kiye h but ye wala sabse mereko attractive lga isliye ham isi ko choose kiye h 🤣... abhi bhi yaad h eid aane wale the March mein tune mujh se pucha bhi tha ki tu konsa dress lega ham bole khan dress 😂... fir tune fatt se apna pic bheja with brown hijab ✨️🎀... yrr ye one of the best colour combination lgta h hijab ka... kya hi mst lgta h tere pe 💘🫠... mtlb ek tarah ka feelings type aata b dil pe (ek friend ke naate) 😁👉🏻👈🏻
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MEMORY 4
+========================= -->
+
+<div class="photo-card">
+
+    <div class="photo-preview">
+
+        <img
+            src="photos/memory4.jpg"
+            alt="Memory 4"
+        >
+
+    </div>
+
+    <h3 class="photo-title">
+        Memory #4 🌷
+    </h3>
+
+    <div class="memory-text">
+Dekho hmm hmm 😅😁... ham ye pic sab mein se khaas laga bolo kyu ?? Kyuki ismein jo tune pose kiya h wo pose mereko bht accha lagta h aisa lagta h ek female boss chair pe ek badass jaise baithi ho 😎🤣✨️🎀... tune ye pic Nahane ke baad bheja tha or pose dekh kr bht accha laga ek dam heroin 😎... sbb pic mere liye memories h yaar 💗✨️
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MEMORY 5
+========================= -->
+
+<div class="photo-card">
+
+    <div class="photo-preview">
+
+        <img
+            src="photos/memory5.jpg"
+            alt="Memory 5"
+        >
+
+    </div>
+
+    <h3 class="photo-title">
+        Memory #5 🌹
+    </h3>
+
+    <div class="memory-text">
+Bhai sahab ye pic dekh kr lagta h teri shaadi ho gyi ha .. (mjk kr rhe hein) 🤣✨️...btw teri har photos mere dil ke andar h or usmein se yeh bhi 💝💫.. ek tarah ka mehsoos hota h 😅.. ki kaash ham waha hote... 🥲.. mtlb aisa lg rha h ki ham tere pass to aa rhe h but... koi cheez tereko apni taraf kheech rhi ha or ham koshish kr rhe ha tere pass aane ka but wo cheez tereko or duur le jaa rhi ha 😭.. aise feelings aate h kabhi kabhi... mtlb explain hi nhi kiya jaa rha h theek se...but ham tera ek best friend h.. to ham limit se bahar nhi jaa sakte h.. lekin koi na ham future mein tere se zarur milenge ek na ek din to zaurur 🥺✨️💗
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MEMORY 6
+========================= -->
+
+<div class="photo-card">
+
+    <div class="photo-preview">
+
+        <img
+            src="photos/memory6.jpg"
+            alt="Memory 6"
+        >
+
+    </div>
+
+    <h3 class="photo-title">
+        Memory #6 🫶
+    </h3>
+
+    <div class="memory-text">
+Yrr ye pic dekh kr mera dil bhari bhari sa feel ho rha h 😭... I mean ye genuinely itna khubsoorat lag rha h AI se edited tera pic 🤌🏻❤️‍🔥... mtlb ye tu hi ha but 4k quality prr ✨️... lekin kbhi kbhi dimag mein bht sare thoughts aate h ki kahi AI hame replace na kr de... yrr tu photos mein real mein bht khoobsurat lagti ha... 💐💘... isse bhi main apne personal album mein rakha hu hifazat se tere sare pic 😭... yrr ho sake to ham future mein tere se naa mil paye.. lekin iss album ko hamesha yaad rakhenge but ham zarur milenge tere se... 🫀mtlb ye uss time ek one of the best memory bann jayegi ki tu pehle aisi thi 💗✨️..
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     OUR STORY
+========================= -->
+
+<div class="section">
+
+    <h2 class="section-title">
+        Our Story 💭
+    </h2>
+
+    <div class="story-box">
+
+        <div class="story-text">
+《The best gift that I have ever in my life》
+
+Samiya Shamsher💗.. ek aisi ladki jo Allah ke taraf se ek tohfe ke Roop mein meri zindagi mein aayi... main Allah ka kaise shukr aada karu... jitna karu to utna kam hi lagta h mereko 😭✨️... 
+
+             《Hadees》
+
+     Pehle Jab ham chote the to lgta tha ki female friend banana ek gunah h but... aj ehsaas hua ki ek female dost banana sirf pyaar mohabbat nhi balki uski respect krna, care krna, unki feelings ko dil se samjhna, apna waqt unke saath dena, or har choti choti cheezon mein unki help krna..etc.. ye sikhaya gya h islam mein... ✨️💗 naa ki sirf haram ka pyaar mohabbat... isse gunah hota h... islam mein nikah se pehle haram ka pyaar mohabbat krna bilkul jaez nhi... dekho ham ek tera best friend ha or iss dosti ko ham hamesha ke liye barkarar rakhenge🥺✨️💗... ek saccha dost ke naate main limit se bahar nhi jaa sakta... 
+             
+             《How we met first time》 
+
+Taqreeban 1 saal pehle.. merko date bhi yaad h (9th of September 2025) pehli baar jab ham JMI ke kiye tayyaari kr rhe the shadab sir ka lecture chal rha tha 🤣✨️.. chat mein pura dhoom dhaam se spamming ho rha tha.. 😂.. tab hi ek ladka chat mein gali likh rha tha... but chat mein ek name Rida ❤️🎀 ... aise hi kch tha name or baad mein SAMAIYA~NAAZ 🎀 name se tu aayi or tu bhi chat mein gali likh rhi thi... 🤣.. tab ham dekhe "arre samiya name se ek ladki gali likh rhi h" 🤭😂🎀.. tab ham chat mein tera name leke msg kiye ki "hey samiya" tab thodi der baad tera reply aaya " ha bolo Kaun??" Ham bole "tum ye sab gali bhi jaanti ho ?? 🤭" tum bhi "hmm sab jante ha 🌚" ham bole "sahi mein" tum boli "hmm hmm sab kuch 🌚🤭" ... fir uske baad ham puche "tumhara name rida ha na" tum boli " haa rida h" ... but kahani mein twist bhi to h 🤣.. ki baat mein tune apna real name Samiya Shamsher bataya ✨️💗.. fir aise karte karte uss din baat cheet krna shuru ho gya ham dono ek dusre ka ghar, name, class puche.. tab jab class khatam hone ki baari aayi tab ham bole ki "rida aaj se tum meri best friend" tum boli "chalo theek he we are now best friends" fir ham bole "rida kal bhi aana baat karenge" tum boli "theek ha aayenge"... 🤣🤣.. bhai sahab uss hi din se hamari dosti ka pehla part shuru hua tab kuch din baat hui sirf app par hi tab mereko ek khayal aaya ki kyu na app chhod kr whatsapp mein baat karen ?? Tab ham tere se number mange but tune mana kr diya 🤣 fir ham zidd kr rhe the number Dene ka lekin tune bola ham number nhi de sakte privacy ha 
+...🤣 mtlb tu soch rhi thi ham kharab ldka ha.. but aakhir mein tune de hi diya number tab whatsapp par pehli baar mile 9th September 2025 ko ... 🎀✨️💗 tab ham dono ek dusre ke age puche or blood group bhi 😂.. tera blood group A+ ha na yaad ha hamko 🤣🤭.. tab ham dono ki dosti aisi chalti rhi... 
+
+          《Funny conversation》 
+
+      Bhai sahab wo topic sabse jyada funny tha kassam se...🤣 jo abhi bhi mereko yaad ha lekin iss ke alawa bht sare isse bhi funny conversation ha but wo abhi dimag mein nhi aa rha... ek din shaam ko tune msg kiya call kiya ki chalo baat karenge tune funny reels bhi bheji thi uss din tune ek baat bola tha "I like someone... hai koi... one sided love..." ham bole "kon ha uska name bata to" tu boli " hai koi uska name "I" se start hota h" 😂 ham bole " I se ?? Ye kon ha be" tu boli " batayen kon ha ??" Ham bole "batao yrr 🥲" tu boli "ice cream 🍦 🤣🤣🤣" ham bole "bhai koi sikha sakta h hasna kaise roken 🫢"... 🤣🤣🤣 bhai sahab uss din ham Hass Hass ke Marr gye the sala 😂 bhai ye one of the best funny conversation tha yrr jo abhi bhi yaad ha 🤣✨️💗..
+
+     《 Things we experienced together》 
+
+Ek baar yaad ha jab tera exam chl rha tha us hi ke beech mereko wattpad ke bare mein pta chala tha ek baar or Chai app ke bare mein tu ek FF dekhi thi sayad ye tha- Rudra falling for the beast 🌚😂.. tu isse dekh ke ff mein chale gyi thi bol rhi thi 🤭... ham sala baar baar soch rhe the ee FF kya hota... 🤣.. tu bol rhi are ff fan fiction.. ham bole ee kya ha fir tu sara baat batayi ff ke bare mein fir tu wattpad ya youtube mein wo ff read ki thi or tu ye sab dekh kr tu thoda love wali feeling mein khoo gyi thi 🌚😂.. I mean ye ham bhi feel kr paa rhe the uss din... fir hamko bhi ff ke bare mein pta chala tha but wo Rudra falling for the beast ko pura read hi nhi kr paye.. fir ham bole ki tu ff ke nashe mein chale gyi fir tu boli ki I like someone wahi ice cream wala 🤣🤣.. yrr uss din jo ham bhi tere feelings mein khoo gye the kya hi batayenge 🤌🏻✨️💗🎀.. ye ek mere liye sabse behtarin memory bann gyi h 💗✨️... 
+
+       《Everything that makes our friendship special》 
+
+Ham.dono pehli baar mile.. uss app ki wajah se education adda jahan padhai ke name pe chatting love story chl rha tha 🤣.. us hi ke beech hamari mulakaat hui sirf ek gali ki wajah se ✨️😂.. batao yrr pehli baar gali kisi cheez mein kaam aaya h 🤣... fir hamari dosti aage whatsapp, insta pe chali or ye chlte rahegi.. hamari dosti ki bonding bhi acchi h, ek dusre se mohabbat h (as a friend), ek dusre ki feelings samjhte h... or bhi bht sare h ham yaha agar bata diye to pura memory  padhne mein 2 ghanta lag jayega.. ha na 🤣.. lekin ye to sirf virtual whatsapp insta ki ha asli to real-life mein hogi naa 🤣✨️🎀..
+
+ Therefore... I know tum bht jyada busy ho aaj ke time pe.. baat karne ke bhi time nhi mill paa rha..😢 ya to koi parehsani ha yrr tum mereko btao yrr kya huii he 🥺.. tum apni dil ki baatein mereko bata sakti ho.. ismein koi shak nhi ✨️🎀.. orr tu abhi kiss halat mein h.. yrr tu kaisi ha nhi ha.. 😭.. ye harr time dimag mein ghumta rhta h... 👤🌬🩸ham bhi aaj kl bht jyada busy ha but free time milne prr sirf tera hi wait karte h.. magar koi reply nhi aata.. ham bhi yahi ummeed se baithe rehte h ki samiya aaj mere se baat karegi.. ham tera hamesha se wait karenge my jaan... ✨️🎀💗
+
+     《It's your day》 
+
+Aaj tumhara janam din he ☺️✨️🎀... to isi baat pe ✨️Happy birthday my gurl✨️🎊💖 now ur 15.. and aaj  ek sabse special din h or tum mere liye kitni special ho wo sirf mujhe mere dil ko pta h 
+.. tumhari khushiyan, tumhari baatein, tumhari hassiyan,, or jo tune apni problems or dil ki baatein share ki..or tumhari har choti se choti khushiyan mere liye ek sukoon jaisa h... or main ye kabhi bhul nhi paunga.. and I hope iss saal Allah tumhe har khushiyan, success, sukoon, or tumhari har khwahishen puri karen.. ameen ameen summa ameen.. 🫂✨️💗🎀.. Jao samiya khoob enjoy karo meri jaan.. 🥹✨️💗🫂    
+            And now… there's just one more thing I wanted to say.. at the below..lets check it out.. 👇🏻❤
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     VIDEO
+========================= -->
+
+<div class="section">
+
+    <h2 class="section-title">
+        A Little Video For You 🎥
+    </h2>
+
+    <div class="video-box">
+
+        <video controls playsinline style="width:100%; max-width:100%;">
+    <source src="birthday-video.mp4" type="video/mp4">
+</video>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     AFTER THE VIDEO
+========================= -->
+
+<div class="section">
+
+    <h2 class="section-title">
+        After The Video... 💌
+    </h2>
+
+    <div class="story-box">
+
+        <div class="after-video">
+After this video, main ye kehna chahunga ki…
+
+I genuinely hope ki ye chota sa gift tereko pasand aayi hogi.. 💗💖..
+Maine isse perfect banane ki nahi... balki dil se banane ki koshish ki h.. 🫂✨️💖
+
+Kuch memories kitni bhi purani ho jaye, unki value kabhi kam nhi hoti.
+Or hopefully, aaj ki ye little memory bhi unhi mein se ek ban jaye. 🫂💗✨
+Samiya... Bas aise hi khush rehna.. smile karti rehna.. ☺️
+aur apne aane wale sare years ko aur bhi beautiful banana.. ✨️💖
+
+Once again..
+Happy Birthday, My favorite human.. 🥹✨️💗
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     ONE LAST THING
+========================= -->
+
+<div class="final-box">
+
+    <h2 class="section-title">
+        One Last Thing... 🌙
+    </h2>
+
+    <div class="final-area">
+Last one thing…
+
+Bas ek last baat kehni thi…
+
+Pta nhi future mein ham dono kitni baatein krenge... kitni cheezein change hongi.. ya life hamein kahan le jayegi. But jo bhi ho.. main genuinely khush hoon ki meri life ki tu ek part bani  🥹✨️💗
+
+Hamne jo bhi chhoti-badi memories banayi ha... shayad unki value abhi utni feel na ho… but I know ki baad mein kabhi peeche mudkar dekhunga.. toh inmein se kuch moments zaroor yaad aayenge... 🌈✨️💗
+
+Bss tu khush rehna... apna khayal rakhna aur apni smile kabhi mat khona... ☺️💗✨️
+
+Orr haann yrr …
+thank you for being a part of my life and my memories... ✨️💗
+
+Happy Birthday, once again.. ✨️🎀🫂
+Stay happy my laddo.. 🫂✨💞
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<div class="footer">
+
+    Made with ❤️ for someone special.
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>

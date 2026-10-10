@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Bestie 💌</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: Georgia, serif;
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 2s ease;
+}
+
+.heart {
+    font-size: 65px;
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(30px, 8vw, 55px);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: clamp(16px, 4vw, 22px);
+    color: #ddd;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.open-btn {
+    border: none;
+    padding: 16px 42px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    box-shadow: 0 0 25px rgba(255, 65, 108, .5);
+    transition: .3s;
+}
+
+.open-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 65, 108, .8);
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="heart">💌</div>
+
+    <h1>Samiya...I made something for you, my laddo!!</h1>
+
+    <p class="subtitle">
+        It's just a little something...<br>
+        but I hope it makes you smile. ✨
+    </p>
+
+    <button class="open-btn" onclick="openPage()">
+        Open It 💖
+    </button>
+</div>
+
+<script>
+function openPage() {
+    document.body.style.opacity = "0";
+
+    setTimeout(() => {
+        window.location.href = "birthday.html";
+    }, 700);
+}
+</script>
+
+</body>
+</html>

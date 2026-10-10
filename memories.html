@@ -505,7 +505,14 @@ body{
         1px solid
         rgba(225,90,130,.25);
 }
-
+  .video-container{
+    width:100%;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    border-radius:15px;
+    background:#f8e8ee;
+    border:1px solid rgba(225,90,130,.25);
+  }
 
 /* =========================
    AFTER VIDEO
@@ -994,13 +1001,15 @@ Aaj tumhara janam din he ☺️✨️🎀... to isi baat pe ✨️Happy birthday
      VIDEO
 ========================= -->
 
-<div style="width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:15px; background:#f8e8ee; border:1px solid rgba(225,90,130,.25);">
+<div class="video-container">
     <iframe
-    src="https://drive.google.com/file/d/16kBqVYXEbo8Gg5M9eZhtxpP73ViEmJb5/preview"
-    title="A Little Video For You"
-    allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-    allowfullscreen
-    style="width:100%; height:100%; border:0; display:block;">
+        src="https://drive.google.com/file/d/16kBqVYXEbo8Gg5M9eZhtxpP73ViEmJb5/preview"
+        title="A Little Video For You"
+        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+        allowfullscreen
+        webkitallowfullscreen
+        mozallowfullscreen
+        style="width:100%; height:100%; border:0; display:block;">
     </iframe>
 </div>
 
